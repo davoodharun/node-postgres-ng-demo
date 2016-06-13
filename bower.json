@@ -1,0 +1,17 @@
+{
+  "name": "node-express-boiler",
+  "description": "boiler template for simple node/express app",
+  "main": "server.js",
+  "authors": [
+    "Harun Davood"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "directory": "client/lib/",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.1",
+    "angular-route": "^1.5.6"
+  }
+}
