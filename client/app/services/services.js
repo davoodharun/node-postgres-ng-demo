@@ -2,18 +2,6 @@
   angular.module('nflpa.services', [])
   .factory('Main', function($http){
 
-    var testRoute = function () {
-     console.log('in service');
-      return $http({
-        method: 'GET',
-        url: '/api/test'
-      }).then(function(result){
-        return result;
-      }).catch(function(error){
-        return error;
-      })
-    }
-
     var addContract = function(contract){
       console.log('in service');
       return $http({
@@ -47,7 +35,7 @@
     var getAllTransactions = function(){
       return $http({
         method: 'GET',
-        url: '/api/transaction/all'
+        url: '/api/transactions'
       }).then(function(result) {
         return result;
       }).catch(function(error) {
@@ -58,7 +46,7 @@
     var getAllContracts = function(){
       return $http({
         method: 'GET',
-        url: '/api/contract/all'
+        url: '/api/contracts'
       }).then(function(result) {
         return result;
       }).catch(function(error) {
@@ -69,7 +57,7 @@
     var getTransactionsByPlayerId = function (player_contact_id) {
       return $http({
         method: 'GET',
-        url: '/api/transaction/' + player_contact_id
+        url: '/api/transaction/pcid/' + player_contact_id
       }).then(function(result) {
         return result;
       }).catch(function(error) {
@@ -78,13 +66,12 @@
     }
 
     return {
-      testRoute: testRoute,
       getTransactionsByPlayerId: getTransactionsByPlayerId,
       addContract: addContract,
       addTransaction: addTransaction,
       getAllContracts: getAllContracts,
       getAllTransactions: getAllTransactions
     }
-  })
+  });
 })();
 

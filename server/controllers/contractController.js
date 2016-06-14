@@ -28,5 +28,40 @@ module.exports = {
 			console.log('error adding contract', error)
 			callback(error, null);
 		})
+	},
+
+	getContractsByPlayerId: function(req, res) {
+		Contract.query().where('player_contact_id', '=', req.params.id).then(function(contracts) {
+			res.status(200).send(contracts);
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	getContractById: function(req, res) {
+		Contract.forge({contract_id: req.params.id}).fetch().then(function(contract) {
+			res.status(200).send(contract);
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	deleteContract: function(req, res) {
+		Contract.forge({contract_id: req.params.id}).fetch().then(function(contract) {
+			contract.destroy().then(function(){
+				res.status(200).send(contract);	
+			})
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	updateContract: function(req, res) {
+		Contract.forge({contract_id: req.params.id}).fetch().then(function(contract) {
+			res.status(200).send(contract);
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
 	}
+
 }

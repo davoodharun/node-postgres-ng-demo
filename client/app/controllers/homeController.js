@@ -43,7 +43,7 @@
         cash_value:Number($scope.cash_value),
         total_guarantee:Number($scope.total_guarantee),
         signing_date:$scope.signing_date,
-        contract_disposition:Number($scope.contract_disposition),
+        contract_disposition:$scope.contract_disposition,
         contract_disposition_date:$scope.contract_disposition_date,
         first_year:Number($scope.first_year),
         last_year:Number($scope.last_year),

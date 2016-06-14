@@ -30,8 +30,34 @@ module.exports = {
 	},
 
 	getTransactionsByPlayerId: function(req, res) {
-		Transaction.query().where('player_contact_id', '=', req.params.playerId).then(function(transactions) {
+		Transaction.query().where('player_contact_id', '=', req.params.id).then(function(transactions) {
 			res.status(200).send(transactions);
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	getTransactionById: function(req, res) {
+		Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
+			res.status(200).send(transaction);
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	deleteTransaction: function(req, res) {
+		Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
+			transaction.destroy().then(function(){
+				res.status(200).send(transaction);	
+			});
+		}).catch(function(error) {
+			res.status(500).send(error);
+		})
+	},
+
+	updateTransaction: function(req, res) {
+		Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
+			res.status(200).send(transaction);
 		}).catch(function(error) {
 			res.status(500).send(error);
 		})
