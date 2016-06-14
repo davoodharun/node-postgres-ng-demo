@@ -1,5 +1,5 @@
 (function() {
-  angular.module('nflpa')
+  angular.module('app')
   .controller('updateTransactionController', function($scope, $location, $rootScope, Main) {
     $scope.transaction = {};
     $scope.transaction.transaction_id = $location.url().split('/')[2];

@@ -51,3 +51,14 @@ q:before, q:after {
 table {
 	width: 100%;
 }
+
+.mockLink {
+	color: blue;
+}
+.update {
+	color: orange;
+}
+
+.delete {
+	color: red;
+}

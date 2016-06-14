@@ -1,5 +1,5 @@
 (function() {
-  angular.module('nflpa')
+  angular.module('app')
   .controller('HomeController', function($scope, $location, $rootScope, Main) {
     $scope.contracts = [];
     $scope.transactions = [];
@@ -69,7 +69,7 @@
         comments: $scope.comments,
         updated_by: $scope.updated_by,
       }
-      
+
       Main.addTransaction(transaction).then(function(response){
         console.log(response.data)
         $scope.getAllTransactions();

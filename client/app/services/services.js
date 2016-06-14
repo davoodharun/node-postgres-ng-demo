@@ -1,5 +1,5 @@
 (function(){
-  angular.module('nflpa.services', [])
+  angular.module('app.services', [])
   .factory('Main', function($http){
 
     var addContract = function(contract){

@@ -61,7 +61,7 @@
 					</tr>
 					<tr ng-repeat="contract in contracts">
 						<td>{{contract.contract_id}}</td>
-						<td ng-click='getTransactionsByPlayerId(contract.player_contact_id)' class='pointer'>{{contract.player_contact_id}}</td>
+						<td ng-click='getTransactionsByPlayerId(contract.player_contact_id)' class='pointer mockLink'>{{contract.player_contact_id}}</td>
 						<td>{{contract.team_id}}</td>
 						<td>{{contract.base_salary}}</td>
 						<td>{{contract.signing_bonus}}</td>
@@ -76,8 +76,8 @@
 						<td>{{contract.last_year}}</td>
 						<td>{{contract.updated_by}}</td>
 						<td>{{contract.updated_at}}</td>
-						<td ng-click='navToUpdate(contract.contract_id, "contract")'> UPDATE </td>
-						<td ng-click='deleteContract(contract.contract_id)'> DELETE </td>
+						<td ng-click='navToUpdate(contract.contract_id, "contract")' class='pointer update'> UPDATE </td>
+						<td ng-click='deleteContract(contract.contract_id)' class='pointer delete'> DELETE </td>
 					</tr>
 				</table>
 				<h3>Transactions</h3>
@@ -104,8 +104,8 @@
 						<td>{{transaction.comments}}</td>
 						<td>{{transaction.updated_by}}</td>
 						<td>{{transaction.updated_at}}</td>
-						<td ng-click='navToUpdate(transaction.transaction_id, "transaction")'> UPDATE </td>
-						<td ng-click='deleteTransaction(transaction.transaction_id)' > DELETE </td>
+						<td ng-click='navToUpdate(transaction.transaction_id, "transaction")' class='pointer update'> UPDATE </td>
+						<td ng-click='deleteTransaction(transaction.transaction_id)' class='pointer delete' > DELETE </td>
 					</tr>
 				</table>
 			</td>
