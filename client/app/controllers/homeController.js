@@ -69,6 +69,7 @@
         comments: $scope.comments,
         updated_by: $scope.updated_by,
       }
+      
       Main.addTransaction(transaction).then(function(response){
         console.log(response.data)
         $scope.getAllTransactions();

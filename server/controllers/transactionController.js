@@ -9,14 +9,14 @@ module.exports = {
 		}).catch(function (error) {
 			console.log('error adding transaction', error)
 			res.status(500).send(error);
-		})
+		});
 	},
 
 	getAllTransactions: function(req, res) {
 		Transaction.fetchAll().then(function(transactions) {
 			console.log('successfully got all transactions..')
 			res.status(200).send(transactions);
-		})
+		});
 	},
 
 	seedDb: function (data, callback) {
@@ -26,7 +26,7 @@ module.exports = {
 		}).catch(function (error) {
 			console.log('error adding transaction', error)
 			callback(error, null);
-		})
+		});
 	},
 
 	getTransactionsByPlayerId: function(req, res) {
@@ -34,7 +34,7 @@ module.exports = {
 			res.status(200).send(transactions);
 		}).catch(function(error) {
 			res.status(500).send(error);
-		})
+		});
 	},
 
 	getTransactionById: function(req, res) {
@@ -42,7 +42,7 @@ module.exports = {
 			res.status(200).send(transaction);
 		}).catch(function(error) {
 			res.status(500).send(error);
-		})
+		});
 	},
 
 	deleteTransaction: function(req, res) {
@@ -56,14 +56,14 @@ module.exports = {
 	},
 
 	updateTransaction: function(req, res) {
-			Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
-				transaction.set(req.body).save().then(function(transaction) {
-					console.log('updated transaction')
-					res.status(200).send(transaction);
-				})
-			}).catch(function(error) {
-				console.log('error updating transaction');
-				res.status(500).send(error);
-			})
-		}
+		Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
+			transaction.set(req.body).save().then(function(transaction) {
+				console.log('updated transaction');
+				res.status(200).send(transaction);
+			});
+		}).catch(function(error) {
+			console.log('error updating transaction');
+			res.status(500).send(error);
+		});
+	}
 }
