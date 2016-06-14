@@ -9,10 +9,16 @@
   "author": "Harun Davood",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.0-rc.6",
     "body-parser": "^1.15.1",
+    "bookshelf": "^0.9.5",
+    "chance": "^1.0.3",
     "express": "^4.13.4",
     "http": "0.0.0",
+    "knex": "^0.11.5",
     "morgan": "^1.7.0",
+    "pg": "^5.1.0",
+    "pg-copy-streams": "^1.1.0",
     "request": "^2.72.0"
   }
 }

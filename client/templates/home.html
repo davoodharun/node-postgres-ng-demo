@@ -1,3 +1,115 @@
-<div ng-controller='HomeController'>
-  <button ng-click='testRoute()'>Hello</button>
+<div>
+	<table>
+		<tr>
+			<td rowspan='2'>
+					<h4>Add Contract</h4>
+				  <form ng-submit='addContract()' id='contractForm'>
+				  	<label>Contract ID: <input type='text' ng-model='contract_id'></label><br>
+				  	<label>Player Contact ID: <input type='text' ng-model='player_contact_id'></label><br>
+				  	<label>team_id: <input type='text' ng-model='team_id'></label><br>
+				  	<label>base_salary: <input type='text' ng-model='base_salary'></label><br>
+				  	<label>signing_bonus: <input type='text' ng-model='signing_bonus'></label><br>
+				  	<label>workout_bonus: <input type='text' ng-model='workout_bonus'></label><br>
+				  	<label>cap_value: <input type='text' ng-model='cap_value'></label><br>
+				  	<label>cash_value: <input type='text' ng-model='cash_value'></label><br>
+				  	<label>total_guarantee: <input type='text' ng-model='total_guarantee'></label><br>
+				  	<label>signing_date: <input type='text' ng-model='signing_date'></label><br>
+				  	<label>contract_disposition: <input type='text' ng-model='contract_disposition'></label><br>
+				  	<label>contract_disposition_date: <input type='text' ng-model='contract_disposition_date'></label><br>
+				  	<label>first_year: <input type='text' ng-model='first_year'></label><br>
+				  	<label>last_year: <input type='text' ng-model='last_year'></label><br>
+				  	<label>updated_by: <input type='text' ng-model='updated_by'></label><br>
+				  </form> <br>
+				  <button form='contractForm' value='submit' type='submit'>Submit</button><br><br>
+
+			  	<h4> Add Transaction </h4>
+			  	<form ng-submit='addTransaction()' id='transactionForm'>
+			  		<label>transaction_id<input type='text' ng-model='transaction_id'></label><br>
+			  		<label>player_contact_id<input type='text' ng-model='player_contact_id'></label><br>
+			  		<label>team_id<input type='text' ng-model='team_id'></label><br>
+			  		<label>transaction_type<input type='text' ng-model='transaction_type'></label><br>
+			  		<label>transaction_date<input type='text' ng-model='transaction_date'></label><br>
+			  		<label>status<input type='text' ng-model='status'></label><br>
+			  		<label>sub_status<input type='text' ng-model='sub_status'></label><br>
+			  		<label>comments<input type='text' ng-model='comments'></label><br>
+			  		<label>updated_by<input type='text' ng-model='updated_by'></label><br>
+			  	</form>
+			  	<button form='transactionForm' value='submit' type='submit'>Submit</button>
+	
+			</td>
+
+			<td>
+				<h3>Contracts</h3>
+				<table class="table table-striped">
+					<tr>
+						<th>contract id</th>
+						<th>player contact id</th>
+						<th>team id</th>
+						<th>base salary</th>
+						<th>signing bonus</th>
+						<th>workout bonus</th>
+						<th>cap value</th>
+						<th>cash value</th>
+						<th>total guarantee</th>
+						<th>signing date</th>
+						<th>contract disposition</th>
+						<th>contract disposition date</th>
+						<th>first year</th>
+						<th>last year</th>
+						<th>updated by</th>
+						<th>updated at</th>
+					</tr>
+					<tr ng-repeat="contract in contracts" ng-click='getTransactionsByPlayerId(contract.player_contact_id)' class='pointer'>
+						<td>{{contract.contract_id}}</td>
+						<td>{{contract.player_contact_id}}</td>
+						<td>{{contract.team_id}}</td>
+						<td>{{contract.base_salary}}</td>
+						<td>{{contract.signing_bonus}}</td>
+						<td>{{contract.workout_bonus}}</td>
+						<td>{{contract.cap_value}}</td>
+						<td>{{contract.cash_value}}</td>
+						<td>{{contract.total_guarantee}}</td>
+						<td>{{contract.signing_date}}</td>
+						<td>{{contract.contract_disposition}}</td>
+						<td>{{contract.contract_disposition_date}}</td>
+						<td>{{contract.first_year}}</td>
+						<td>{{contract.last_year}}</td>
+						<td>{{contract.updated_by}}</td>
+						<td>{{contract.updated_at}}</td>
+					</tr>
+				</table>
+				<h3>Transactions</h3>
+				<button ng-click='getAllTransactions()'>Show All</button>
+				<table class="table table-striped">
+					<tr>
+						<th>trans. id</th>
+						<th>player contact id</th>
+						<th>trans. type</th>
+						<th>trans. date</th>
+						<th>status</th>
+						<th>sub_status</th>
+						<th>comments</th>
+						<th>updated by</th>
+						<th>updated at</th>
+					</tr>
+					<tr ng-repeat="transaction in transactions">
+						<td>{{transaction.transaction_id}}</td>
+						<td>{{transaction.player_contact_id}}</td>
+						<td>{{transaction.transaction_type}}</td>
+						<td>{{transaction.transaction_date}}</td>
+						<td>{{transaction.status}}</td>
+						<td>{{transaction.sub_status}}</td>
+						<td>{{transaction.comments}}</td>
+						<td>{{transaction.updated_by}}</td>
+						<td>{{transaction.updated_at}}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				
+			</td>
+			</tr>
+	</table>
 </div>
