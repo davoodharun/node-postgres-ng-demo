@@ -13,25 +13,6 @@ still in development...
 ## API routes
 ### Contract Routes
 1. POST: /api/contract --> add contract to db
-'''json
-{
-    contract_id: 587,
-    player_contact_id: 3,
-    team_id: 704,
-    base_salary: 565963,
-    signing_bonus: 86159,
-    workout_bonus: 32374,
-    cap_value: 850077,
-    cash_value: 23645,
-    total_guarantee: 70155,
-    signing_date: Sat Mar 23 2086 11: 45: 36 GMT - 0400(EDT),
-    contract_disposition: 'Expired',
-    contract_disposition_date: '10/22/2089',
-    first_year: '2001',
-    last_year: '2008',
-    updated_by: 'Scott Jones'
-}
-'''
 2. GET: /api/contracts --> get all contracts from db
 3. GET: /api/contract/pcid/:id --> get contracts by player id
 4. GET: /api/contract/:id --> get contract by id
