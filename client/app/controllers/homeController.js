@@ -1,6 +1,6 @@
 (function() {
   angular.module('nflpa')
-  .controller('HomeController', function($scope, $rootScope, Main) {
+  .controller('HomeController', function($scope, $location, $rootScope, Main) {
     $scope.contracts = [];
     $scope.transactions = [];
       
@@ -81,6 +81,33 @@
       Main.getTransactionsByPlayerId(player_contact_id).then(function(response) {
         $scope.transactions = response.data;
       }).catch(function(error) {
+        console.log(error);
+      });
+    }
+
+    $scope.navToUpdate = function (id, itemType) {
+      if(itemType === 'contract') {
+        $location.path('/contract/' + id)
+      }
+      else if (itemType === 'transaction') {
+        $location.path('/transaction/' + id)
+      }
+    }
+
+    $scope.deleteContract = function (id) {
+      Main.deleteContract(id).then(function(response){
+        console.log(response.data);
+        $scope.getAllContracts();
+      }).catch(function(error){
+        console.log(error);
+      });
+    }
+
+    $scope.deleteTransaction = function (id) {
+      Main.deleteTransaction(id).then(function(response){
+        console.log(response.data);
+        $scope.getAllTransactions();
+      }).catch(function(error){
         console.log(error);
       });
     }

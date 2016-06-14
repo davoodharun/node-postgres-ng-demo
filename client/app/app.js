@@ -13,5 +13,13 @@ angular.module('nflpa', [
     .when('/', {
       templateUrl: '../templates/home.html',
       controller: 'HomeController'
+    })
+    .when('/contract/:id', {
+      templateUrl: '../templates/update-contract.html',
+      controller: 'updateContractController'
+    })
+    .when('/transaction/:id', {
+      templateUrl: '../templates/update-transaction.html',
+      controller: 'updateTransactionController'
     });
 });

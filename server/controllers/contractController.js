@@ -58,8 +58,12 @@ module.exports = {
 
 	updateContract: function(req, res) {
 		Contract.forge({contract_id: req.params.id}).fetch().then(function(contract) {
-			res.status(200).send(contract);
+			contract.set(req.body).save().then(function(contract) {
+				console.log('updated contract')
+				res.status(200).send(contract);
+			})
 		}).catch(function(error) {
+			console.log('error updating contract');
 			res.status(500).send(error);
 		})
 	}

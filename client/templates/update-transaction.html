@@ -1,0 +1,12 @@
+<h4> Update Transaction with id {{transaction.transaction_id}} </h4>
+<form ng-submit='updateTransaction()' id='transactionForm'>
+	<label>player_contact_id<input type='text' ng-model='transaction.player_contact_id'></label><br>
+	<label>team_id<input type='text' ng-model='transaction.team_id'></label><br>
+	<label>transaction_type<input type='text' ng-model='transaction.transaction_type'></label><br>
+	<label>transaction_date<input type='text' ng-model='transaction.transaction_date'></label><br>
+	<label>status<input type='text' ng-model='transaction.status'></label><br>
+	<label>sub_status<input type='text' ng-model='transaction.sub_status'></label><br>
+	<label>comments<input type='text' ng-model='transaction.comments'></label><br>
+	<label>updated_by<input type='text' ng-model='transaction.updated_by'></label><br>
+</form>
+<button form='transactionForm' value='submit' type='submit'>Update</button>

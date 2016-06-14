@@ -60,7 +60,7 @@ module.exports = function(app) {
 				 							console.log(error);
 				 						} else {
 				 							console.log('success resetting db'); 
-				 							// TODO: send response back once last iteration is finished (async!)
+				 							// TODO: send response back once last iteration is finished (async!) and refactor this route
 				 						}
 				 					});
 				 				}

@@ -56,10 +56,14 @@ module.exports = {
 	},
 
 	updateTransaction: function(req, res) {
-		Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
-			res.status(200).send(transaction);
-		}).catch(function(error) {
-			res.status(500).send(error);
-		})
-	}
+			Transaction.forge({transaction_id: req.params.id}).fetch().then(function(transaction) {
+				transaction.set(req.body).save().then(function(transaction) {
+					console.log('updated transaction')
+					res.status(200).send(transaction);
+				})
+			}).catch(function(error) {
+				console.log('error updating transaction');
+				res.status(500).send(error);
+			})
+		}
 }

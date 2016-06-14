@@ -1,0 +1,18 @@
+<h4>Update Contract with id, {{contract.contract_id}}</h4>
+<form ng-submit='updateContract()' id='contractForm'>
+	<label>Player Contact ID: <input type='text' ng-model='contract.player_contact_id'></label><br>
+	<label>team_id: <input type='text' ng-model='contract.team_id'></label><br>
+	<label>base_salary: <input type='text' ng-model='contract.base_salary'></label><br>
+	<label>signing_bonus: <input type='text' ng-model='contract.signing_bonus'></label><br>
+	<label>workout_bonus: <input type='text' ng-model='contract.workout_bonus'></label><br>
+	<label>cap_value: <input type='text' ng-model='contract.cap_value'></label><br>
+	<label>cash_value: <input type='text' ng-model='contract.cash_value'></label><br>
+	<label>total_guarantee: <input type='text' ng-model='contract.total_guarantee'></label><br>
+	<label>signing_date: <input type='text' ng-model='contract.signing_date'></label><br>
+	<label>contract_disposition: <input type='text' ng-model='contract.contract_disposition'></label><br>
+	<label>contract_disposition_date: <input type='text' ng-model='contract.contract_disposition_date'></label><br>
+	<label>first_year: <input type='text' ng-model='contract.first_year'></label><br>
+	<label>last_year: <input type='text' ng-model='contract.last_year'></label><br>
+	<label>updated_by: <input type='text' ng-model='contract.updated_by'></label><br>
+</form> <br>
+<button form='contractForm' value='submit' type='submit'>Submit</button><br><br>
