@@ -1,4 +1,4 @@
-# nflpa application
+# example node-express-angular-postgres application
 
 still in development...
 
