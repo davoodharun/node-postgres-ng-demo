@@ -1,0 +1,12 @@
+demo:
+  build: .
+  environment:
+    DEPLOYED: "true"
+  dockerfile: Dockerfile
+  ports:
+   - 80:3000
+  links:
+   - postgres
+
+postgres:
+  image: postgres
