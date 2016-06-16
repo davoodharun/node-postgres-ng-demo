@@ -4,11 +4,16 @@ if (process.env.DEPLOYED) {
   knex = require('knex')({
     client: 'pg',
     connection: {
-      host: 'postgres',
+      host: process.env.DATABASE_URL,
       user: 'postgres',
-      password: 'mysecretpassword',
+      port: 5432,
+      password: 'postgres',
       database : 'postgres',
       charset  : 'utf8'
+    },
+    pool: {
+      min: 0,
+      max: 10
     }
   });
 } else {
@@ -22,7 +27,6 @@ if (process.env.DEPLOYED) {
     }
   });
 }
-
 var db = require('bookshelf')(knex);
 
 var createContractsTable = function () {

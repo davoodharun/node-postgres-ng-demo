@@ -22,6 +22,7 @@ module.exports = {
 
 	seedDb: function (data, callback) {
 		Contract.forge(data).save().then(function(contract){
+			console.log(contract, 'contract')
 			console.log('contract successfull added');
 			callback(null, contract);
 		}).catch(function (error) {

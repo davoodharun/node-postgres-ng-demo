@@ -5,4 +5,4 @@ var Contract = db.Model.extend({
   tableName: 'contracts',
   hasTimestamps: true
 });
-module.exports = db.model('Contract', Contract);;
+module.exports = Contract
