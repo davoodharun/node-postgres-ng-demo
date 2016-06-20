@@ -2,7 +2,7 @@
 var Chance = require('chance');
 var chance = new Chance();
 var contract_disposition = ['Current', 'Expired'];
-var transaction_type = ['New Contract', 'placed on Injured reserve', 'Activated', 'Waived'];
+var transaction_type = ['New Contract', 'Injured', 'Activated', 'Waived'];
 var status = ['Active', 'Not Active'];
 var sub_status= ['Active', 'Injured Reserve', 'Waived'];
 var team_id = Math.floor(Math.random() * (1000 - 1) + 1);

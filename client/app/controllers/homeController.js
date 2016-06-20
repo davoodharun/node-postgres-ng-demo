@@ -31,30 +31,33 @@
       });
     }
 
-    $scope.addContract = function() {
-      var contract = {
-        contract_id:Number($scope.contract_id),
-        player_contact_id:Number($scope.player_contact_id),
-        team_id:Number($scope.team_id),
-        base_salary:Number($scope.base_salary),
-        signing_bonus:Number($scope.signing_bonus),
-        workout_bonus:Number($scope.workout_bonus),
-        cap_value:Number($scope.cap_value),
-        cash_value:Number($scope.cash_value),
-        total_guarantee:Number($scope.total_guarantee),
-        signing_date:$scope.signing_date,
-        contract_disposition:$scope.contract_disposition,
-        contract_disposition_date:$scope.contract_disposition_date,
-        first_year:Number($scope.first_year),
-        last_year:Number($scope.last_year),
-        updated_by:$scope.updated_by
+    $scope.addContract = function(isValid) {
+      console.log($scope.contractForm.$valid)
+      if($scope.contractForm.$valid) {
+        var contract = {
+          contract_id:Number($scope.contract_id),
+          player_contact_id:Number($scope.player_contact_id),
+          team_id:Number($scope.team_id),
+          base_salary:Number($scope.base_salary),
+          signing_bonus:Number($scope.signing_bonus),
+          workout_bonus:Number($scope.workout_bonus),
+          cap_value:Number($scope.cap_value),
+          cash_value:Number($scope.cash_value),
+          total_guarantee:Number($scope.total_guarantee),
+          signing_date:$scope.signing_date,
+          contract_disposition:$scope.contract_disposition,
+          contract_disposition_date:$scope.contract_disposition_date,
+          first_year:Number($scope.first_year),
+          last_year:Number($scope.last_year),
+          updated_by:$scope.updated_by
+        }
+        Main.addContract(contract).then(function(response){
+          console.log(response.data);
+          $scope.getAllContracts();
+        }).catch(function(error){
+          console.log(error);
+        }); 
       }
-      Main.addContract(contract).then(function(response){
-        console.log(response.data);
-        $scope.getAllContracts();
-      }).catch(function(error){
-        console.log(error);
-      });
     }
 
     $scope.addTransaction = function() {
@@ -71,7 +74,6 @@
       }
 
       Main.addTransaction(transaction).then(function(response){
-        console.log(response.data)
         $scope.getAllTransactions();
       }).catch(function(error){
         console.log(error);
