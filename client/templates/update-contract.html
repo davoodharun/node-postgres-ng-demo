@@ -1,18 +1,105 @@
-<h4>Update Contract with id, {{contract.contract_id}}</h4>
-<form ng-submit='updateContract()' id='contractForm'>
-	<label>Player Contact ID: <input type='text' ng-model='contract.player_contact_id'></label><br>
-	<label>team_id: <input type='text' ng-model='contract.team_id'></label><br>
-	<label>base_salary: <input type='text' ng-model='contract.base_salary'></label><br>
-	<label>signing_bonus: <input type='text' ng-model='contract.signing_bonus'></label><br>
-	<label>workout_bonus: <input type='text' ng-model='contract.workout_bonus'></label><br>
-	<label>cap_value: <input type='text' ng-model='contract.cap_value'></label><br>
-	<label>cash_value: <input type='text' ng-model='contract.cash_value'></label><br>
-	<label>total_guarantee: <input type='text' ng-model='contract.total_guarantee'></label><br>
-	<label>signing_date: <input type='text' ng-model='contract.signing_date'></label><br>
-	<label>contract_disposition: <input type='text' ng-model='contract.contract_disposition'></label><br>
-	<label>contract_disposition_date: <input type='text' ng-model='contract.contract_disposition_date'></label><br>
-	<label>first_year: <input type='text' ng-model='contract.first_year'></label><br>
-	<label>last_year: <input type='text' ng-model='contract.last_year'></label><br>
-	<label>updated_by: <input type='text' ng-model='contract.updated_by'></label><br>
-</form> <br>
-<button form='contractForm' value='submit' type='submit'>Submit</button><br><br>
+<div class='edit'>
+	<h4>Update Contract {{contract.contract_id}}</h4>
+	<form ng-submit='updateContract()' class='form-horizontal' name='contractForm' id='contractForm' novalidate>
+		<div class='form-group row'>
+			<label class="col-sm-2 form-control-label">Player Contact ID: </label>
+			<div class="col-sm-10">
+				<input required class='form-control' type='text' name='contract.player_contact_id' ng-model='contract.player_contact_id'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">team_id: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.team_id' ng-model='contract.team_id'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">base_salary: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.base_salary' ng-model='contract.base_salary'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">signing_bonus: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.signing_bonus' ng-model='contract.signing_bonus'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">workout_bonus: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.workout_bonus' ng-model='contract.workout_bonus'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">cap_value: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.cap_value' ng-model='contract.cap_value'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">cash_value: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.cash_value' ng-model='contract.cash_value'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">total_guarantee: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.total_guarantee' ng-model='contract.total_guarantee'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">signing_date: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.signing_date' ng-model='contract.signing_date'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">contract_disposition: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.contract_disposition' ng-model='contract.contract_disposition'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">contract_disposition_date: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.contract_disposition_date' ng-model='contract.contract_disposition_date'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">first_year: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.first_year' ng-model='contract.first_year'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">last_year: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.last_year' ng-model='contract.last_year'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class="col-sm-2 form-control-label">updated_by: </label>
+			<div class='col-sm-10'>
+				<input required class='form-control' type='text' name='contract.updated_by' ng-model='contract.updated_by'>
+			</div>
+		</div>
+		<button form='contractForm' value='submit' class='btn btn-sm btn-warning' ng-disabled="contractForm.$invalid" type='submit'>Submit</button>
+	</form>
+	<div id='contract-error'>
+		<span ng-show="contractForm.contract.player_contact_id.$invalid && !contractForm.contract.player_contact_id.$pristine" class="help-block">A player id is required.</span>
+		<span ng-show="contractForm.contract.team_id.$invalid && !contractForm.contract.team_id.$pristine" class="help-block">A team is required.</span>
+		<span ng-show="contractForm.contract.base_salary.$invalid && !contractForm.contract.base_salary.$pristine" class="help-block">A base salary is required.</span>
+		<span ng-show="contractForm.contract.signing_bonus.$invalid && !contractForm.contract.signing_bonus.$pristine" class="help-block">A signing bonus is required.</span>
+		<span ng-show="contractForm.contract.workout_bonus.$invalid && !contractForm.contract.workout_bonus.$pristine" class="help-block">A workout bonus is required.</span>
+		<span ng-show="contractForm.contract.cash_value.$invalid && !contractForm.contract.cash_value.$pristine" class="help-block">A cash value is required.</span>
+		<span ng-show="contractForm.contract.total_guarantee.$invalid && !contractForm.contract.total_guarantee.$pristine" class="help-block">A total guarantee is required.</span>
+		<span ng-show="contractForm.contract.signing_date.$invalid && !contractForm.contract.signing_date.$pristine" class="help-block">A signing date is required.</span>
+		<span ng-show="contractForm.contract.contract_disposition.$invalid && !contractForm.contract.contract_disposition.$pristine" class="help-block">A contract disposition is required.</span>
+		<span ng-show="contractForm.contract.contract_disposition_date.$invalid && !contractForm.contract.contract_disposition_date.$pristine" class="help-block">A contract disposition date is required.</span>
+		<span ng-show="contractForm.contract.last_year.$invalid && !contractForm.contract.last_year.$pristine" class="help-block">A last year is required.</span>
+		<span ng-show="contractForm.contract.first_year.$invalid && !contractForm.contract.first_year.$pristine" class="help-block">A first year is required.</span>
+		<span ng-show="contractForm.contract.update_by.$invalid && !contractForm.contract.update_by.$pristine" class="help-block">You must enter your name.</span>
+	</div>
+</div>

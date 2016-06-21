@@ -1,6 +1,6 @@
 <div>
 	<div id='contracts'>
-		<h3>Contracts</h3>
+		<h3>CONTRACTS</h3> <br><br>
 		<form ng-submit='addContract()' name="contractForm" novalidate>
 			<table class="table table-striped table-condensed">
 				<tr>
@@ -40,11 +40,11 @@
 					<td>{{contract.last_year}}</td>
 					<td>{{contract.updated_by}}</td>
 					<td>{{contract.updated_at}}</td>
-					<td ng-click='navToUpdate(contract.contract_id, "contract")' class='pointer update'> UPDATE </td>
+					<td ng-click='navToUpdate(contract.contract_id, "contract")' class='pointer update'> EDIT </td>
 					<td ng-click='deleteContract(contract.contract_id)' class='pointer delete'> DELETE </td>
 				</tr>
 				<tr>
-					<td><input type='text' name='contract_id' ng-model='contract_id' required ng-class="{ 'has-error' : contractForm.contract_id.$invalid && !contractForm.contract_id.$pristine }"></td>
+					<td><input type='text' name='contract_id' ng-model='contract_id' required></td>
 					<td><input type='text' name="player_contact_id" ng-model='player_contact_id' required></td>
 					<td><input type='text' name="team_id" ng-model='team_id' required></td>
 					<td><input type='text' name="base_salary" ng-model='base_salary' required></td>
@@ -88,8 +88,7 @@
 		</div>
 	</div>
 	<div id ='transactions'>
-		<h3>Transactions</h3>
-		<button ng-click='getAllTransactions()'>Show All</button>
+		<h3>TRANSACTIONS</h3> <button class='btn btn-sm btn-warning' ng-click='getAllTransactions()'>Show All</button>
 			<form ng-submit='addTransaction()' name='transactionForm' id='transactionForm'>
 				<table class="table table-striped table-condensed">
 					<tr>
@@ -117,7 +116,7 @@
 						<td>{{transaction.comments}}</td>
 						<td>{{transaction.updated_by}}</td>
 						<td>{{transaction.updated_at}}</td>
-						<td ng-click='navToUpdate(transaction.transaction_id, "transaction")' class='pointer update'> UPDATE </td>
+						<td ng-click='navToUpdate(transaction.transaction_id, "transaction")' class='pointer update'> EDIT </td>
 						<td ng-click='deleteTransaction(transaction.transaction_id)' class='pointer delete' > DELETE </td>
 					</tr>
 					<tr>

@@ -31,6 +31,12 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-size: 10px !important;
+	font-weight: 200;
+}
+
+h3 {
+	display: inline !important;
+	margin-right: 10px;
 }
 ol, ul {
 	list-style: none;
@@ -48,10 +54,19 @@ q:before, q:after {
     cursor: pointer;
 }
 
+.btn {
+	margin-bottom: 10px !important;
+}
+
 table {
 	width: 100%;
 }
 
+.edit {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
 .mockLink {
 	color: blue;
 }
@@ -65,13 +80,23 @@ table {
 
 input {
 	width:100% !important;
-	height:20px !important;
+}
+.table {
+	margin-bottom: 0px !important;
 }
 
+th {
+	color: #73247b;
+	font-weight:600;
+}
 #contract-error {
 	height:10px;
 	width:100%;
 	display: inline-block;
+}
+
+#transactions {
+	margin-top: 10px;
 }
 
 .help-block {
